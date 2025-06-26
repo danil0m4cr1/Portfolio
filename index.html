@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Portfólio</title>
 </head>
@@ -65,7 +69,7 @@
 
     <main>
         <section class="home" id="home"><!-- Home Section -->
-            <div class="left-container">
+            <div class="left-container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-duration="500">
                 <div class="home-title">
                     <h2>Danilo Macri</h2>
                     <span></span>
@@ -82,8 +86,8 @@
                 </div>
             </div>
 
-            <div class="right-container">
-                <div class="img-person"></div>
+            <div class="right-container" data-aos="flip-right" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                <img src="images/foto2.jpeg" alt="Foto Danilo Macri">
             </div>
         </section><!-- Fim Home Section -->
 
@@ -93,26 +97,30 @@
                     <h2>Formações</h2>
                     <span></span>
                 </div>
-                <div class="formacao-single">
+                <div class="formacao-single" data-aos="fade-down-right" data-aos-duration="1000" data-aos-easing="ease-in-out">
                     <img src="images/senai-logo.png" alt="Logo SENAI">
                     <p>Técnico em Eletroeletrônica | SENAI Comendador Santoro Mirone<br>
                     (2024)</p>
                 </div>
-                <div class="formacao-single">
+                <div class="formacao-single" data-aos="fade-down-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="200">
                     <img src="images/senai-logo.png" alt="Logo SENAI">
                     <p>Tecnólogo em Análise e Desenvolvimento de Sistemas | Faculdade de 
                     Tecnologia SENAI Roberto Mange<br>
                     (2025-2026)</p>
                 </div>
-                <div class="formacao-single">
+                <div class="formacao-single" data-aos="fade-down-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="300">
                     <img src="images/danki-logo.png" alt="Logo SENAI">
                     <p>Curso Web Design Express | DankiCode <br>
                     (2025)</p>
                 </div>
-                <div class="formacao-single">
+                <div class="formacao-single" data-aos="fade-down-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="400">
                     <img src="images/danki-logo.png" alt="Logo SENAI">
                     <p>Curso Webmaster Front-End Completo | DankiCode <br>
                     (cursando)</p>
+                </div>
+                <div class="logos-mob">
+                    <img src="images/senai-logo.png" alt="senai logo">
+                    <img src="images/danki-logo.png" alt="danki logo">
                 </div>
             </div>
         </section> <!-- Fim Formacoes Section -->
@@ -124,30 +132,143 @@
             </div>
 
             <div class="projetos-content">
-                <div class="projeto-single">
-                    <div class="img-trocar"> <!-- Substituir a div por uma tag img -->
-
+                <div class="projeto-single" data-aos="fade-down-right" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                    <img src="images/projeto1.png" alt="Projeto 1 - Projeto TechNova">
+                    <div class="overlay">
+                        <p>Este é um projeto desenvolvido na faculdade, com
+                            intuito de aprimorar conhecimentos de HTML5, CSS3 e
+                            responsividade.
+                        </p>
+                        <button class="projeto-btn"><a href="https://danil0m4cr1.github.io/Formativa-DSW/">VISITAR PROJETO</a></button>
                     </div>
                 </div>
-                <div class="projeto-single">
-                    <div class="img-trocar"> <!-- Substituir a div por uma tag img -->
-                        
+                <div class="projeto-single" data-aos="fade-down-left" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                    <img src="images/projeto2.png" alt="Projeto 2 - Projeto Integrador">
+                    <div class="overlay">
+                        <p>Este é um projeto desenvolvido na faculdade, visando
+                            ajudar a empresa Ferragens Negrão, facilitando
+                            cadastro, remoção, histórico de peças e relatórios.
+                        </p>
+                        <button class="projeto-btn"><a href="https://danil0m4cr1.github.io/ProjetoIntegrador/login-admin.html">VISITAR PROJETO</a></button>
                     </div>
                 </div>
-                <div class="projeto-single">
-                    <div class="img-trocar"> <!-- Substituir a div por uma tag img -->
-                        
+                <div class="projeto-single" data-aos="fade-up-right" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                    <img src="images/projeto3.png" alt="Projeto 3 - Projeto TravelAgency">
+                    <div class="overlay">
+                        <p>Este é um projeto desenvolvido na faculdade, com
+                            intuito de aprimorar conhecimentos de HTML5, CSS3 e
+                            responsividade.
+                        </p>
+                        <button class="projeto-btn"><a href="https://danil0m4cr1.github.io/ativ1-aula4/">VISITAR PROJETO</a></button>
                     </div>
                 </div>
-                <div class="projeto-single">
-                    <div class="img-trocar"> <!-- Substituir a div por uma tag img -->
-                        
+                <div class="projeto-single" data-aos="fade-up-left" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                    <img src="images/projeto4.png" alt="Projeto 4 - Projeto SEO Solutions">
+                    <div class="overlay">
+                        <p>Este é um projeto desenvolvido na faculdade, com
+                            intuito de aprimorar conhecimentos de HTML5, CSS3 e
+                            responsividade
+                        </p>
+                        <button class="projeto-btn"><a href="https://danil0m4cr1.github.io/ativ2-aula4/">VISITAR PROJETO</a></button>
                     </div>
                 </div>
             </div>
         </section> <!-- Fim Projetos Section -->
+
+        <section class="tecnologias" id="tecnologias"> <!-- Início Tecnologias Section -->
+            <div class="tecnologias-title">
+                <h2>Tecnologias</h2>
+                <span></span>
+            </div>
+            <div class="tecnologias-content">
+                <div class="tecnologias-single" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                    <img src="images/icons/html5-original.svg" alt="HTML5 Icone">
+                    <p>HTML5</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="100">
+                    <img src="images/icons/css3-original.svg" alt="CSS3 Icone">
+                    <p>CSS3</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="200">
+                    <img src="images/icons/javascript-original.svg" alt="Javascript Icone">
+                    <p>Javascript</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="300">
+                    <img src="images/icons/angular-original.svg" alt="AngularJS Icone">
+                    <p>AngularJS</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="400">
+                    <img src="images/icons/jquery-original.svg" alt="Jquery Icone">
+                    <p>JQuery</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                    <img src="images/icons/python-original.svg" alt="Python Icone">
+                    <p>Python</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="100">
+                    <img src="images/icons/git-original.svg" alt="Git Icone">
+                    <p>Git</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="200">
+                    <img src="images/icons/figma-original.svg" alt="Figma Icone">
+                    <p>Figma</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="300">
+                    <img src="images/icons/photoshop-original.svg" alt="Photoshop Icone">
+                    <p>Photoshop</p>
+                </div>
+                <div class="tecnologias-single" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-delay="400">
+                    <img src="images/icons/linux-original.svg" alt="Linux Icone">
+                    <p>Linux</p>
+                </div>
+            </div>
+        </section> <!-- Fim Tecnologias Section -->
+
+        <section class="contato" id="contato"> <!-- Início Contato Section -->
+            <div class="contato-title">
+                <h2>Contato</h2>
+                <span></span>
+            </div>
+            <div class="contato-content">
+                <div class="contato-buttons">
+                    <button id="wpp-btn">Enviar Mensagem no WhatsApp</button>
+                    <button id="email-btn">Enviar Mensagem no Email</button>
+                </div>
+
+                <form class="form hidden" id="form-wpp" autocomplete="off">
+                    <div class="input-nome">
+                        <input type="text" class="input" id="nomeWpp">
+                        <p>Nome</p>
+                    </div>
+                    <textarea placeholder="Digite uma mensagem!" id="txtWpp"></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+                <form action="https://formsubmit.co/danilomacri11@gmail.com" method="POST" class="form hidden" id="form-email" autocomplete="off">
+                    <div class="input-nome">
+                        <input type="text" name="name" class="input" id="nomeEmail">
+                        <p>Nome</p>
+                    </div>
+                    <div class="input-email">
+                        <input type="email" name="email" class="input" id="email">
+                        <p>E-mail</p>
+                    </div>
+                    <textarea placeholder="Digite uma mensagem!" name="message" id="txtEmail"></textarea>
+                    <input type="hidden" name="_subject" value="Nova mensagem!">
+                    <input type="hidden" name="_next">
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </section> <!-- Fim Contato Section -->
     </main>
 
+    <footer class="footer"> <!-- Footer -->
+        <p>&copy; Todos os direitos reservados por Danilo Macri | 2025</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
