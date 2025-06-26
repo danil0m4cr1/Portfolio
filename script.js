@@ -266,8 +266,8 @@ function enviarWpp(){
 }
 
 function thankPage(){ // Redireciona para a página de agradecimento
-    const url = document.location.origin;
-    const urlThanks = url + '/obrigado.html';
+    const url = document.location.href;
+    const urlThanks = url + 'obrigado.html';
     const pageInp = $('#form-email [name="_next"]');
     pageInp.attr('value', `${urlThanks}`);
 }
