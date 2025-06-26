@@ -266,11 +266,11 @@ function enviarWpp(){
 }
 
 function thankPage(){ // Redireciona para a página de agradecimento
-    const url = document.location.hostname;
+    const url = document.location.origin;
     const pageInp = $('#form-email [name="_next"]');
     let urlThanks = null;
 
-    if(url == '127.0.0.1' || url == 'localhost'){
+    if(url == 'http://127.0.0.1:5500' || url == 'http://localhost:5500'){
         urlThanks = url + '/obrigado.html'
     } else {
         urlThanks = url + '/Portfolio/obrigado.html'
