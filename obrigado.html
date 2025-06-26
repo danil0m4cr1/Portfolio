@@ -22,8 +22,14 @@
 
     <script>
         const url = document.location.origin;
-        const mainUrl = url + '/index.html';
+        let mainUrl = null;
         const link = document.querySelector('.container a');
+
+        if(url == 'http://127.0.0.1:5500' || url == 'http://localhost:5500'){
+            mainUrl = url + '/index.html';
+        } else {
+            mainUrl = url + '/Portfolio/index.html';
+        }
         link.setAttribute('href', `${mainUrl}`); 
     </script>
 </body>
