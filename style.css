@@ -8,13 +8,9 @@
     -webkit-appearance: none;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html {scroll-behavior: smooth;}
 
-body {
-    background-color: #1F2833;
-}
+body {background-color: #1F2833;}
 
 .header {
     width: 100%;
@@ -64,9 +60,7 @@ li a {
 /* Fim do menu mobile */
 
 /* Menu Desktop */
-.menu-desktop {
-    display: none;
-}
+.menu-desktop {display: none;}
 
 .menu-desktop ul {
     display: flex;
@@ -275,9 +269,7 @@ main {
     box-shadow: 0px 0px 30px 0px rgba(102,252,241,0.75);
     animation: animProjeto .2s forwards;
 
-    & > .overlay {
-        opacity: 1;
-    }
+    & > .overlay {opacity: 1;}
 }
 
 .overlay {
@@ -293,7 +285,10 @@ main {
     align-items: center;
 }
 
-.overlay p {color: #C5C6C7; font-size: 15px;}
+.overlay p {
+    color: #C5C6C7; 
+    font-size: 15px;
+}
 
 .projeto-btn {
     margin: 1rem 0;
@@ -436,42 +431,49 @@ form.hidden {display: none;}
     z-index: 5;
 }
 
-/* Classes js */
-.no-focus-mob {
+.input-nome p, .input-email p {
     text-align: left;
     position: absolute;
-    top: 20px;
-    padding-left: 1rem;
-    color: #45A29E;
+    left: 1rem;
     z-index: -1;
 }
 
-.focusMob {
-    position: absolute;
+/* Classes js */
+.no-focus-mob {
     top: 20px;
-    left: 1rem;
+    color: #45A29E;
+}
+
+.focusMob {
+    top: 20px;
     font-size: 18px;
     color: #66FCF1;
     animation: focusMob 1s forwards;
 }
 
-.no-focus-desktop {
-    text-align: left;
-    position: absolute;
-    top: 25px;
-    left: 1rem;
+.no-focus-tablet {
+    top: 35px;
     font-size: 24px;
     color: #45A29E;
-    z-index: -1;
+}
+
+.focusTablet {
+    top: 22px;
+    font-size: 24px;
+    color: #66FCF1;
+    animation: focusTablet 1s forwards;
+}
+
+.no-focus-desktop {
+    top: 25px;
+    font-size: 24px;
+    color: #45A29E;
 }
 
 .focusDesktop {
-    position: absolute;
     top: 25px;
-    left: 1rem;
     font-size: 24px;
     color: #66FCF1;
-    z-index: -1;
     animation: focusDesktop 1s forwards;
 }
 
@@ -529,37 +531,35 @@ form .err-msg::-webkit-input-placeholder {color: red;}
 }
 
 /* Animações */
-@keyframes fotoPerfil {
-    0% {
-        top: 0;
-    }
+@keyframes fotoPerfil { /* Foto de perfil flutuando */
+    0% {top: 0;}
 
-    50% {
-        top: -10px;
-    }
+    50% {top: -10px;}
 
-    100% {
-        top: 0;
-    }
+    100% {top: 0;}
 }
 
-@keyframes aparecendo {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+@keyframes aparecendo { /* Formulários aparecendo */
+    0% {opacity: 0;}
+
+    100% {opacity: 1;}
 }
 
-@keyframes focusMob {
+@keyframes focusMob { /* Foco input mobile*/
     100% {
         top: 0;
         left: 0;
     }
 }
 
-@keyframes focusDesktop {
+@keyframes focusTablet { /* Foco input tablet */
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes focusDesktop { /* Foco input desktop*/
     100% {
         top: 0;
         left: 0;
@@ -567,40 +567,66 @@ form .err-msg::-webkit-input-placeholder {color: red;}
 }
 
 @keyframes line { /* Animação de hover do menu*/
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+    from {width: 0;}
+
+    to {width: 100%;}
 }
 
 @keyframes animProjeto { /* Animação de hover dos projetos */
-    0% {
-        top: 0;
-    }
+    0% {top: 0;}
 
-    100% {
-        top: -15px;
-    }
+    100% {top: -15px;}
 }
 
 @media screen and (min-width: 768px) { /* A partir de dispositivos tablet */
-    .icon-mobile {
-        display: none;
+    .icon-mobile {display: none;}
+
+    .menu-mobile {display: none;}
+
+    .menu-desktop {display: block;}
+
+    .home-title span{left: 54%;}
+
+    .home-title h2, .formacoes-title h2,
+    .projetos-title h2, .tecnologias-title h2,
+    .contato-title h2 {font-size: 46px;}
+
+    .home-content p, .formacao-single p,
+    .overlay p, .tecnologias-single p, 
+    .footer p {
+        font-size: 24px;
+        line-height: 30px;
     }
 
-    .menu-mobile {
-        display: none;
+    .formacoes-title span {left: 65%;}
+
+    .formacao-single img {display: block;}
+
+    .logos-mob {display: none;}
+
+    .projetos-title span {left: 53%;}
+
+    .tecnologias-title span {left: 72%;}
+
+    .tecnologias-single img {
+        width: 65px;
+        height: 65px;
     }
 
-    .menu-desktop {
-        display: block;
+    .contato-title span {left: 55%;}
+
+    .contato-buttons button{
+        font-size: 24px;
+        width: 400px;
     }
 
-    .home-title span{
-        left: 50%;
+    .input-nome, .input-email {padding: 2rem 0;}
+
+    .form input[type=text], .form input[type=email],
+    .form textarea, .form input[type=submit] {
+        font-size: 24px;
     }
+
 }
 
 @media screen and (min-width: 1080px){ /* A partir de notebooks */
@@ -617,54 +643,37 @@ form .err-msg::-webkit-input-placeholder {color: red;}
         justify-content: center;
     }
 
-    .home-title h2{
-        font-size: 52px;
-    }
+    .home-title h2, .formacoes-title h2,
+    .projetos-title h2, .tecnologias-title h2,
+    .contato-title h2 {font-size: 52px;}
 
     .home-title span {
         width: 168px;
         left: 48%;
     }
     
-    .home-content p {
-        max-width: 520px;
-        font-size: 24px;
-        line-height: 30px;
-    }
+    .home-content p {max-width: 520px;}
 
     .home-socialmedia {
         margin: 1rem 0;
         text-align: left;
     }
 
-    .right-container {
-        order: 2;
-    }
+    .right-container {order: 2;}
 
     .right-container img {
         width: 350px;
         height: 350px;
     }
 
-    .formacoes-container {
-        width: 40%;
-    }
-
-    .formacoes-title h2 {font-size: 52px;}
+    .formacoes-container {width: 40%;}
 
     .formacoes-title span {
         width: 168px; 
         left: 40%;
     }
 
-    .formacao-single p {
-        font-size: 24px; 
-        line-height: 30px;
-    }
-
     .formacao-single img {display: block;}
-    
-    .logos-mob {display: none;}
 
     .projetos-title h2 {font-size: 52px;}
     
@@ -685,17 +694,11 @@ form .err-msg::-webkit-input-placeholder {color: red;}
 
     .overlay {padding: 2rem;}
 
-    .overlay p {font-size: 24px;}
-
     .projeto-btn {width: 250px;}
 
     .projeto-btn a {font-size: 24px;}
 
-    .tecnologias-title h2 {font-size: 52px;}
-
-    .tecnologias-title span {
-        width: 130px;
-    }
+    .tecnologias-title span {width: 130px;}
 
     .tecnologias-content {
         grid-template-columns: repeat(5, 1fr);
@@ -707,19 +710,12 @@ form .err-msg::-webkit-input-placeholder {color: red;}
         height: 85px;
     }
 
-    .tecnologias-single p {font-size: 24px;}
-
-    .contato-title h2 {font-size: 52px;}
-
     .contato-title span {
         width: 130px;
         left: 49%;
     }
 
-    .contato-buttons button {
-        font-size: 24px;
-        width: 44%;
-    }
+    .contato-buttons button {width: 44%;}
 
     .form {
         width: 40%; 
@@ -728,17 +724,9 @@ form .err-msg::-webkit-input-placeholder {color: red;}
 
     .input-nome, .input-email {padding: 2rem 0;}
 
-    .input-nome input, .input-email input, 
-    .form textarea {
-        font-size: 24px;
-    }
-
-    .form span {
-        font-size: 24px;
-    }
+    .form span {font-size: 24px;}
 
     .form input[type=submit] {
-        font-size: 24px;
         width: 50%;
         height: 52px;
     }

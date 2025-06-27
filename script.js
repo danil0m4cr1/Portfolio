@@ -1,117 +1,36 @@
+const wppBtn = $('#wpp-btn');
+const emailBtn = $('#email-btn');
+let formWpp = $('#form-wpp');
+let formEmail = $('#form-email');
+let screenWidth = null;
+
+$(window).resize(function(){ // Aplica a classe hidden no redimensionamento de tela
+    formEmail.addClass('hidden');
+    formWpp.addClass('hidden');
+})
+
 $(document).ready(()=>{
-    $('#menu-mob').click(()=>{
+    $('#menu-mob').click(()=>{  // Menu mobile
         let menuMob = $('.menu-mobile ul');
         menuMob.fadeToggle();
     })
 
-    $('.menu-desktop li a').hover(function(){
+    $('.menu-desktop li a').hover(function(){ // Efeito no menu desktop
         $('nav ul li').removeClass('active');
         $(this).parent().addClass('active');
     })
 
-    const wppBtn = $('#wpp-btn');
-    const emailBtn = $('#email-btn');
-    let formWpp = $('#form-wpp');
-    let formEmail = $('#form-email');
-    let screenWidth = $(window).width();
-
-    wppBtn.click(()=>{ // Butão whatsapp
-        let input = $('#form-wpp .input');
-
-        input.focus(()=>{
-            input.next().removeClass('no-focus-mob');
-            input.next().removeClass('focusMob');
-        })
-
-        formWpp.toggleClass('hidden');
-        formWpp.addClass('form-wpp');
-
-        if(screenWidth > 1080){
-            input.next().addClass('no-focus-desktop');
-            input.focus(()=>{
-                input.next().removeClass('no-focus-desktop');
-                input.next().addClass('focusDesktop');
-            })
-            input.blur(()=>{
-                let val = input.val();
-                if(val != 0){
-                    input.next().fadeOut(1000);
-                } else {
-                    input.next().fadeIn(1000);
-                    input.next().removeClass('focusDesktop');
-                    input.next().addClass('no-focus-desktop');
-                }
-            })
-        } else if(screenWidth < 768){
-            input.next().addClass('no-focus-mob');
-            input.focus(()=>{
-                input.next().removeClass('no-focus-mob');
-                input.next().addClass('focusMob');
-            })
-            input.blur(()=>{
-                let val = input.val();
-                if(val != 0){
-                    input.next().fadeOut(1000);
-                } else {
-                    input.next().fadeIn(1000);
-                    input.next().removeClass('focusMob');
-                    input.next().addClass('no-focus-mob');
-                }
-                
-            })                
-        }
-        formEmail.addClass('hidden');
+    wppBtn.click(()=>{ // Botão whatsapp
+        screenWidth = $(window).width() + 15;
+        wppClass(screenWidth);
     })
 
     emailBtn.click(()=>{ // Botão Email
-        let input = $('#form-email .input');
-
-        formEmail.toggleClass('hidden');
-        formEmail.addClass('form-email');
-
-        if(screenWidth > 1080){
-            input.next().addClass('no-focus-desktop');
-            input.each(function(){
-                $(this).focus(()=>{
-                    $(this).next().removeClass('no-focus-desktop');
-                    $(this).next().addClass('focusDesktop');
-                })
-                $(this).blur(()=>{
-                    let val = $(this).val();
-                    if(val != 0){
-                        $(this).next().fadeOut(1000);
-                    } else {
-                        $(this).next().fadeIn(1000);
-                        $(this).next().removeClass('focusDesktop');
-                        $(this).next().addClass('no-focus-desktop');
-                    }
-                })
-            })
-
-        } else if(screenWidth < 768){
-            input.next().addClass('no-focus-mob');
-            input.each(function(){
-                $(this).focus(()=>{
-                    $(this).next().removeClass('no-focus-mob');
-                    $(this).next().addClass('focusMob');
-                })
-                $(this).blur(()=>{
-                    let val = $(this).val();
-                    if(val != 0){
-                        $(this).next().fadeOut(1000);
-                    } else {
-                        $(this).next().fadeIn(1000);
-                        $(this).next().removeClass('focusMob');
-                        $(this).next().addClass('no-focus-mob');
-                    }
-                })
-            })
-        }
-
-        formWpp.addClass('hidden');
+        screenWidth = $(window).width() + 15;
+        emailClass(screenWidth);   
     })
 
-    formEmail.submit(function(){
+    formEmail.submit(function(){ // Formulário de envio para email
         let emailValido = validateEmailForm();
         if(emailValido){
             return true;
@@ -120,7 +39,7 @@ $(document).ready(()=>{
         }
     })
 
-    formWpp.submit(function(){
+    formWpp.submit(function(){ // Formulário de envio para whatsapp
         let wppValido = validateWpp();
         if(wppValido){
             enviarWpp();
@@ -129,8 +48,137 @@ $(document).ready(()=>{
         }
     })
 
-    thankPage();
+    thankPage(); // Adiciona a url para redirecionamento da pagina de agradecimento
 })
+
+function wppClass(width){ // Coloca a classe respectiva ao dispositivo
+    let input = $('#form-wpp .input');
+
+    formWpp.toggleClass('hidden');
+    formWpp.addClass('form-wpp');
+
+    input.next().removeClass();
+
+    if(width >= 1080){
+        input.next().addClass('no-focus-desktop');
+        input.focus(()=>{
+            input.next().removeClass('no-focus-desktop');
+            input.next().addClass('focusDesktop');
+        })
+        input.blur(()=>{
+            let val = input.val();
+            if(val != 0){
+                input.next().fadeOut(1000);
+            } else {
+                input.next().fadeIn(1000);
+                input.next().removeClass('focusDesktop');
+                input.next().addClass('no-focus-desktop');
+            }
+        })
+    } 
+    if(width >= 768 && width < 1080){
+        input.next().addClass('no-focus-tablet');
+        input.focus(()=>{
+            input.next().removeClass('no-focus-tablet');
+            input.next().addClass('focusTablet');
+        })
+        input.blur(()=>{
+            let val = input.val();
+            if(val != 0){
+                input.next().fadeOut(1000);
+            } else {
+                input.next().fadeIn(1000);
+                input.next().removeClass('focusTablet');
+                input.next().addClass('no-focus-tablet');
+            }
+        })
+    } else if(width < 768){
+        input.next().addClass('no-focus-mob');
+        input.focus(()=>{
+            input.next().removeClass('no-focus-mob');
+            input.next().addClass('focusMob');
+        })
+        input.blur(()=>{
+            let val = input.val();
+            if(val != 0){
+                input.next().fadeOut(1000);
+            } else {
+                input.next().fadeIn(1000);
+                input.next().removeClass('focusMob');
+                input.next().addClass('no-focus-mob');
+            }
+            
+        })                
+    }
+    formEmail.addClass('hidden');
+}
+
+function emailClass(width){ // Coloca a classe respectiva ao dispositivo
+    let input = $('#form-email .input');
+
+    formEmail.toggleClass('hidden');
+    formEmail.addClass('form-email');
+
+    input.next().removeClass();
+
+    if(width >= 1080){
+        input.next().addClass('no-focus-desktop');
+        input.each(function(){
+            $(this).focus(()=>{
+                $(this).next().removeClass('no-focus-desktop');
+                $(this).next().addClass('focusDesktop');
+            })
+            $(this).blur(()=>{
+                let val = $(this).val();
+                if(val != 0){
+                    $(this).next().fadeOut(1000);
+                } else {
+                    $(this).next().fadeIn(1000);
+                    $(this).next().removeClass('focusDesktop');
+                    $(this).next().addClass('no-focus-desktop');
+                }
+            })
+        })
+    }
+    if(width >= 768 && width < 1080){
+        input.next().addClass('no-focus-tablet');
+        input.each(function(){
+            $(this).focus(()=>{
+                $(this).next().removeClass('no-focus-tablet');
+                $(this).next().addClass('focusTablet');
+            })
+            $(this).blur(()=>{
+                let val = $(this).val();
+                if(val != 0){
+                    $(this).next().fadeOut(1000);
+                } else {
+                    $(this).next().fadeIn(1000);
+                    $(this).next().removeClass('focusTablet');
+                    $(this).next().addClass('no-focus-tablet');
+                }
+            })
+        })
+    } else if(width < 768){
+        input.next().addClass('no-focus-mob');
+        input.each(function(){
+            $(this).focus(()=>{
+                $(this).next().removeClass('no-focus-mob');
+                $(this).next().addClass('focusMob');
+            })
+            $(this).blur(()=>{
+                let val = $(this).val();
+                if(val != 0){
+                    $(this).next().fadeOut(1000);
+                } else {
+                    $(this).next().fadeIn(1000);
+                    $(this).next().removeClass('focusMob');
+                    $(this).next().addClass('no-focus-mob');
+                }
+            })
+        })
+    }
+    formWpp.addClass('hidden');
+}
 
 function validateWpp(){ // Verificação do formulário de whatsapp
     const nomeWpp = $('#nomeWpp');
@@ -255,7 +303,7 @@ function validateEmail(value){ // Verifica se o email é válido
     }
 }
 
-function enviarWpp(){
+function enviarWpp(){ // Envia para a página do whatsapp
     const nome = $('#nomeWpp').val();
     const texto = $('#txtWpp').val();
 
